@@ -1,0 +1,37 @@
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+
+	&__icon {
+		width: 11px;
+		height: 19px;
+		margin-inline-end: 10px;
+		stroke-linecap: round;
+		stroke-width: 3;
+
+		&--light {
+			fill: #ffffff;
+		}
+
+		&--dark {
+			fill: #202428;
+		}
+	}
+
+	&__text {
+		font-size: 1.8rem;
+		font-weight: 460;
+		padding-inline-end: 8px;
+
+
+		&--light {
+			color: #ffffff;
+		}
+
+		&--dark {
+			color: #000;
+		}
+	}
+}

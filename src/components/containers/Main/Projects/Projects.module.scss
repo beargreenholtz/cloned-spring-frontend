@@ -1,0 +1,269 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+@keyframes zoom-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.3, 0.3);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #000;
+	padding: 0 90px;
+
+	&__header {
+		font-size: 9.6rem;
+		font-weight: 700;
+		color: #ffffff;
+		margin: 64px 0;
+		text-align: center;
+
+		&--visible {
+			visibility: visible;
+		}
+
+		&--hidden {
+			visibility: hidden;
+		}
+	}
+
+	&__headerMobile {
+		display: none;
+	}
+
+	.projectsDescriptionBox {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 1000px;
+
+		&__description {
+			font-size: 3.6rem;
+			font-weight: 500;
+			color: #ffffff;
+			text-align: center;
+		}
+	}
+
+	.projectsDescriptionBoxMobile {
+		display: none;
+	}
+
+	.innerCategories {
+		display: flex;
+		width: 100%;
+		margin-top: 100px;
+
+		&__title {
+			font-size: 4rem;
+			font-weight: 400;
+			color: #ffffff;
+			margin-inline-end: 10px;
+		}
+
+		.filtersList {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			width: 100%;
+
+			.innerRow {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 16px 0;
+
+				&__all {
+					border-radius: 50%;
+					border: 2px solid #5f5e5e;
+					padding: 8px;
+					color: #ffffff;
+					margin-inline-end: 16px;
+					font-size: 3.2rem;
+
+					&--selected {
+						border: 2px solid #fcf5d9;
+					}
+				}
+			}
+
+			.innerRow:not(:last-child) {
+				margin-bottom: 16px;
+			}
+		}
+	}
+
+	.innerProjects {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 4px;
+		width: 100%;
+
+		.projectsContainer {
+			flex: 49%;
+			flex-direction: column;
+			max-width: 49%;
+
+			.leftProject {
+				margin-inline-end: 30px;
+			}
+
+			.rightProject {
+				margin-inline-start: 30px;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		max-width: map.get($sizes, main-mobile-width);
+		margin-top: 32px;
+		padding: 0;
+
+		&__header {
+			display: none;
+		}
+
+		&__headerMobile {
+			display: block;
+			text-align: center;
+			font-size: 5.2rem;
+			color: white;
+
+			&--visible {
+				visibility: visible;
+
+				@for $i from 1 through 10 {
+					&:nth-child(#{$i}) {
+						transition: visibility 0.2s linear #{$i * 0.5s};
+						animation: zoom-in 0.5s ease-in-out #{$i * 0.5s};
+					}
+				}
+			}
+
+			&--hidden {
+				visibility: hidden;
+			}
+		}
+
+		&__headerMobile:not(:last-child) {
+			margin-bottom: 32px;
+		}
+
+		.projectsDescriptionBoxMobile {
+			display: initial;
+			width: 100%;
+			padding: 0 20px;
+			margin: 64px 0 64px 0;
+
+			&--visible {
+				opacity: 1;
+				animation: fade-in 1s ease-in-out;
+			}
+
+			&--hidden {
+				opacity: 0;
+			}
+
+			&__descriptionMobile {
+				font-size: 2.4rem;
+				font-weight: 500;
+				color: #ffffff;
+				text-align: start;
+			}
+		}
+
+		.projectsDescriptionBox {
+			display: none;
+		}
+
+		.innerCategories {
+			margin-top: 0px;
+			width: 100%;
+			padding: 0 15px;
+
+			.filtersList {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				width: 100%;
+
+				.innerRow {
+					padding-bottom: 10px;
+				}
+
+				.innerRow {
+					display: flex;
+					align-items: center;
+
+					&__second {
+						display: flex;
+						align-items: center;
+					}
+
+					&__all {
+						margin-inline-end: 8px;
+						font-size: 2rem;
+
+						&--selected {
+							border: 2px solid #fcf5d9;
+						}
+					}
+				}
+
+				.innerRow:not(:last-child) {
+					margin-bottom: 16px;
+				}
+			}
+
+			&__title {
+				display: none;
+			}
+		}
+
+		.innerProjects {
+			flex-direction: column-reverse;
+			padding-top: 8px;
+
+			.projectsContainer {
+				display: flex;
+				max-width: 100%;
+				flex: 100%;
+				padding: 0 16px;
+				gap: 8px;
+
+				.leftProject {
+					margin-inline-end: 0px;
+				}
+
+				.rightProject {
+					margin-inline-start: 0px;
+					display: flex;
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}

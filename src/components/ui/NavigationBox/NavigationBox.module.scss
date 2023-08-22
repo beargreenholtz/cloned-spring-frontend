@@ -1,0 +1,122 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	position: absolute;
+	bottom: 106px;
+	left: 16px;
+	min-width: 300px;
+	max-width: 273px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+
+	.infoContainer {
+		display: flex;
+		flex-direction: column;
+		margin-inline-end: 32px;
+
+		&__productionName {
+			font-size: 2.4rem;
+			font-weight: 500;
+			color: #ffffff;
+		}
+
+		.secondLine {
+			display: flex;
+			align-items: center;
+			margin-top: 3px;
+
+			&__category {
+				font-size: 2rem;
+				font-weight: 500;
+				color: #ffffff;
+				margin-inline-end: 7px;
+			}
+
+			&__year {
+				font-size: 2rem;
+				font-weight: 500;
+				color: #ffffff;
+			}
+		}
+	}
+
+	.buttonsContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.button {
+			display: flex;
+			align-items: center;
+			height: 100%;
+
+			&__text {
+				font-size: 1.6rem;
+				font-weight: 400;
+				color: #ffffff;
+			}
+
+			&__icon {
+				height: 12px;
+				width: 7px;
+				fill: #ffffff;
+
+				&--right {
+					margin-inline-start: 8px;
+				}
+
+				&--left {
+					margin-inline-end: 8px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		max-width: none;
+		left: 0;
+		bottom: 136px;
+		padding: 0 3px;
+		padding: 0 16px;
+
+		.buttonsContainer {
+			flex-direction: row-reverse;
+			margin-inline-start: 34px;
+			gap: 64px;
+
+			.button {
+				&__text {
+					display: none;
+				}
+
+				&__icon {
+					height: 33px;
+					width: 20px;
+				}
+			}
+		}
+
+		.infoContainer {
+			&__productionName {
+				font-size: 24px;
+				font-weight: 500;
+				line-height: 26px;
+			}
+
+			.secondLine {
+				&__category {
+					font-size: 1.5rem;
+				}
+
+				&__year {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

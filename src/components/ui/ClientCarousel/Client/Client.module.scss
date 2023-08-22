@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.clientName {
+	font-size: 4.5rem;
+	font-weight: 700;
+	height: 80px;
+	width: auto;
+	margin-inline-end: 70px;
+	vertical-align: middle;
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.clientName {
+		font-size: 2.5rem;
+		height: 40px;
+		margin-inline-end: 50px;
+	}
+}

@@ -1,0 +1,64 @@
+@use 'sass:map';
+
+@import '@/styles/variables.scss';
+
+
+.containerNoise {
+
+    position: fixed;
+
+    .bg {
+        background: linear-gradient(233.82deg, #FFFCF0 11.75%, #FCF5D9 37.21%, #FFFFFD 66.39%, #E3D495 121.03%);
+        width: 100vw;
+        height: 100vh;
+
+        .firstCircle {
+            position: fixed;
+            left: 12.17%;
+            right: -16.87%;
+            top: -80.04%;
+            bottom: 32.59%;
+
+            background: radial-gradient(50% 50% at 50% 50%, #BB8CE1 0%, rgba(187, 140, 225, 0) 100%);
+            opacity: 0.5;
+        }
+
+        .secondCircle {
+            position: fixed;
+            left: 14.48%;
+            right: 0%;
+            top: -9.57%;
+            bottom: -31.06%;
+
+            background: radial-gradient(50% 50% at 50% 50%, #F9C55F 0%, rgba(249, 197, 95, 0) 100%);
+        }
+    }
+}
+
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+    .containerNoise {
+        .bg {
+            .firstCircle {
+                position: absolute;
+                left: 0.07%;
+                right: 45.72%;
+                top: 40.17%;
+                bottom: -0.1%;
+
+                background: radial-gradient(78.86% 117.32% at 21.99% 117.32%, #F9C55F 0%, rgba(249, 197, 95, 0) 100%);
+            }
+
+            .secondCircle {
+                position: absolute;
+                left: 29.23%;
+                right: -33.93%;
+                top: -80.04%;
+                bottom: 32.59%;
+
+                background: radial-gradient(50% 50% at 50% 50%, #BB8CE1 0%, rgba(187, 140, 225, 0) 100%);
+                opacity: 0.5;
+            }
+        }
+    }
+}

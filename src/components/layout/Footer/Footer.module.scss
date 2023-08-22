@@ -1,0 +1,163 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background: linear-gradient(233.82deg, #fffcf0 11.75%, #fcf5d9 37.21%, #fffffd 66.39%, #e3d495 121.03%);
+	padding: 180px 0;
+
+	&__subHeaderWeb {
+		display: block;
+		font-size: 2.4rem;
+		font-weight: 400;
+	}
+
+	&__subHeaderMobile {
+		display: none;
+	}
+
+	&__headerWeb {
+		display: block;
+		font-size: 9.6rem;
+		font-weight: 700;
+		color: rgba(0, 0, 0, 1);
+		margin: 24px 0 96px 0;
+	}
+
+	&__headerMobile {
+		display: none;
+	}
+
+	.contactInfoBox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		&__item {
+			color: rgba(0, 0, 0, 1);
+			font-size: 2.7rem;
+			font-weight: 500;
+		}
+
+		&__spacialItem {
+			font-weight: 500;
+			font-size: 2.7rem;
+			width: fit-content;
+			background: linear-gradient(90deg, #f9c55f 0%, #f67a7c 50.52%, #bb8ce1 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			border-image-slice: 1;
+			border-width: 1px;
+			border-image-source: linear-gradient(90deg, #f9c55f 0%, #f67a7c 50.52%, #bb8ce1 100%);
+		}
+
+		&__backSlash {
+			font-size: 2.7rem;
+			font-weight: 500;
+			margin: 0 32px;
+		}
+	}
+
+	&__text {
+		font-size: 2.4rem;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 1);
+		margin-inline-end: 10px;
+	}
+
+	.brandLogo {
+		display: block;
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+		width: 111px;
+		height: 51px;
+
+		&__icon {
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background: linear-gradient(233.82deg,
+				#fffcf0 11.75%,
+				#fcf5d9 37.21%,
+				#fffffd 66.39%,
+				#e3d495 121.03%);
+		padding: 82px 0;
+
+		&__subHeaderWeb {
+			display: none;
+		}
+
+		&__subHeaderMobile {
+			display: block;
+			font-size: 2.4rem;
+			font-weight: 400;
+			text-align: center;
+			line-height: 27px;
+		}
+
+		&__headerWeb {
+			display: none;
+		}
+
+		&__headerMobile {
+			display: block;
+			font-size: 6.4rem;
+			font-weight: 700;
+			color: rgba(0, 0, 0, 1);
+			margin: 24px 0 96px 0;
+			text-align: center;
+			line-height: 70px;
+		}
+
+		.contactInfoBox {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+
+			&__item {
+				margin-bottom: 32px;
+			}
+
+			&__spacialItem {
+				margin-bottom: 32px;
+			}
+
+			&__backSlash {
+				display: none;
+			}
+		}
+
+		&__text {
+			font-size: 2.4rem;
+			font-weight: 400;
+			color: rgba(255, 255, 255, 1);
+			margin-inline-end: 10px;
+		}
+
+		&__brandIcon {
+			display: none;
+		}
+	}
+}

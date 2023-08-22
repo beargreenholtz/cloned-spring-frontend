@@ -1,0 +1,62 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	position: relative;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 16px 16px 0 16px;
+	z-index: 1;
+
+	&__backButton {
+		display: flex;
+		height: fit-content;
+	}
+
+	.brandLogo {
+		display: flex;
+		top: 16px;
+		width: 231px;
+		height: 63px;
+		position: absolute;
+		right: 16px;
+
+		&__icon {
+			width: 100%;
+			height: 100%;
+			-moz-transition: all 0.4s ease-in;
+			-o-transition: all 0.4s ease-in;
+			-webkit-transition: all 0.4s ease-in;
+			transition: all 0.4s ease-in;
+		}
+	}
+
+	.rightSide__brandLogo {
+		display: none;
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		max-width: map.get($sizes, main-mobile-width);
+
+		.brandLogo {
+			top: 16px;
+			width: 231px;
+			height: 63px;
+
+			&__icon {
+				display: none;
+			}
+		}
+
+		.rightSide__brandLogo {
+			display: block;
+			height: 60px;
+			width: 47px;
+		}
+	}
+}

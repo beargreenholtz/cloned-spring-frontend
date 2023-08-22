@@ -1,0 +1,93 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 63px;
+	height: 700px;
+
+	&__title {
+		font-size: 6.4rem;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.innerTypes {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 16px 0;
+		align-items: center;
+		margin-top: 35px;
+	}
+
+	.firstLine {
+		font-size: 6.4rem;
+		font-weight: 400;
+		color: #fffcf0;
+		margin-top: 50px;
+	}
+
+	.secondLine {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			font-size: 9.6rem;
+			font-weight: 400;
+			color: #ffffff;
+			margin-inline-end: 24px;
+			text-decoration: none;
+		}
+
+		&__icon {
+			width: 24px;
+			height: 45px;
+			fill: #ffffff;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		max-width: map.get($sizes, main-mobile-width);
+		height: 350px;
+		margin-top: 32px;
+
+		&__title {
+			font-size: 2.4rem;
+			font-weight: 400;
+			color: rgba(255, 255, 255, 1);
+		}
+
+		.innerTypes {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 8px 0px;
+			margin-top: 16px;
+		}
+
+		.firstLine {
+			font-size: 3.6rem;
+			margin-top: 16px;
+		}
+
+		.secondLine {
+			margin-top: 16px;
+
+			&__text {
+				font-size: 4rem;
+				margin-inline-end: 16px;
+				text-decoration: none;
+			}
+
+			&__icon {
+				width: 11px;
+				height: 22px;
+			}
+		}
+	}
+}

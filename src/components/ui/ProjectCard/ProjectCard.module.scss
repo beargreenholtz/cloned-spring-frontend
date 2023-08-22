@@ -1,0 +1,80 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.container {
+	margin-top: 64px;
+	float: right;
+	width: fit-content;
+	opacity: 0;
+
+	&--hidden {
+		display: none;
+	}
+
+	&--visible {
+		display: block;
+	}
+
+	&--fadeIn {
+		animation: fade-in 0.5s ease-in-out;
+		opacity: 1;
+	}
+
+	&__img {
+		height: 100%;
+		width: 100%;
+	}
+
+	.projectInfo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 8px;
+
+		&__name {
+			font-size: 2.4rem;
+			font-weight: 500;
+			color: #ffffff;
+			text-align: start;
+		}
+
+		.rightSide {
+			display: flex;
+			align-items: center;
+			margin-inline-start: 16px;
+
+			&__item {
+				font-size: 2rem;
+				font-weight: 400;
+				color: #ffffff;
+				text-align: start;
+			}
+
+			&__item:first-child {
+				margin-inline-end: 8px;
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		max-width: map.get($sizes, main-mobile-width);
+		margin-top: 8px;
+
+		.projectInfo {
+			display: none;
+		}
+	}
+}
